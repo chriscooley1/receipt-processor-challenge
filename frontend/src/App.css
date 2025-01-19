@@ -40,3 +40,60 @@
 .read-the-docs {
   color: #888;
 }
+
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.receipt-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.receipt-form div {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.receipt-form label {
+  min-width: 120px;
+}
+
+.receipt-form input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.item-inputs {
+  display: flex;
+  gap: 1rem;
+}
+
+.error {
+  color: red;
+  margin: 1rem 0;
+}
+
+.points {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0052a3;
+}
