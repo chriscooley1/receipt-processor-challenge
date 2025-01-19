@@ -29,6 +29,18 @@ export default function ReceiptForm({ onSubmit }: Props) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate total matches sum of items
+    const itemsTotal = receipt.items.reduce((sum, item) => {
+      return sum + (parseFloat(item.price) || 0);
+    }, 0);
+    
+    const total = parseFloat(receipt.total);
+    if (Math.abs(itemsTotal - total) > 0.01) {
+      alert("Total must match the sum of item prices");
+      return;
+    }
+    
     onSubmit(receipt);
   };
 
@@ -41,6 +53,8 @@ export default function ReceiptForm({ onSubmit }: Props) {
           type="text"
           value={receipt.retailer}
           onChange={(e) => setReceipt({ ...receipt, retailer: e.target.value })}
+          pattern="^[\w\s\-&]+$"
+          title="Only letters, numbers, spaces, hyphens, and & are allowed"
           required
         />
       </div>
